@@ -219,11 +219,31 @@
     });
     phone.addEventListener('focus',function(){if(!this.value)this.value='+998 '});
 
-    document.getElementById('leadForm').addEventListener('submit',function(e){
+    var form=document.getElementById('leadForm');
+    form.addEventListener('submit',function(e){
       e.preventDefault();
       if(!this.checkValidity()){this.reportValidity();return;}
-      document.getElementById('formBody').style.display='none';
-      document.getElementById('success').classList.add('show');
+      var btn=form.querySelector('.submit');
+      btn.disabled=true;btn.style.opacity=.7;btn.textContent='Yuborilmoqda…';
+      fetch('https://mizon-crm.uz/api/public/leads',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          company_slug:'yangidavr',
+          name:document.getElementById('name').value.trim(),
+          phone:document.getElementById('phone').value.trim(),
+          region:'Veb-Sayt',
+          source:'website',
+          extra:'Sinf: '+document.getElementById('grade').value
+        })
+      }).then(function(r){
+        if(!r.ok)throw new Error('bad response');
+        document.getElementById('formBody').style.display='none';
+        document.getElementById('success').classList.add('show');
+      }).catch(function(){
+        btn.disabled=false;btn.style.opacity=1;
+        btn.innerHTML='Qaytadan urinib ko‘ring';
+      });
     });
   })();
 </script>
