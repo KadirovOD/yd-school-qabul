@@ -1,1 +1,6 @@
 .vercel
+.DS_Store
+*.docx
+*.xlsx
+*.pptx
+*.pdf
