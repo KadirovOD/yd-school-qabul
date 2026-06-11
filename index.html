@@ -52,7 +52,11 @@
   /* Hero */
   .hero{position:relative;padding:64px 0 80px}
   .hero::before{content:"";position:absolute;top:-120px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(15,168,119,.16),transparent 65%);z-index:-1;pointer-events:none}
-  .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .grid{display:flex;justify-content:center}
+  .order-form{width:100%;max-width:460px}
+  .card .eyebrow{margin-bottom:18px}
+  .card h2{text-align:center}
+  .card .lead{text-align:center;margin-top:8px}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green-600);background:var(--green-50);border:1px solid rgba(15,168,119,.18);padding:7px 14px;border-radius:999px;letter-spacing:.01em}
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(15,168,119,.18)}
   h1{margin-top:22px;font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.05;letter-spacing:-.025em;font-weight:800}
@@ -127,15 +131,12 @@
 <main>
   <section class="hero">
     <div class="wrap grid">
-      <div>
-        <span class="eyebrow"><span class="dot"></span>Bog‘dod tumani · 2026–2027 qabul ochiq</span>
-        <h1>Bepul konsultatsiyaga <span class="accent">yoziling</span></h1>
-        <p class="sub"><b>Bog‘dod tumanida</b> joylashganmiz. Quyidagi ma’lumotlarni qoldiring — operatorimiz tez orada bog‘lanadi.</p>
-      </div>
-
       <div class="order-form">
         <div class="card">
           <div class="form-body" id="formBody">
+            <span class="eyebrow"><span class="dot"></span>Bog‘dod tumani · 2026–2027 qabul ochiq</span>
+            <h2>Bepul konsultatsiyaga yoziling</h2>
+            <p class="lead"><b>Bog‘dod tumanida</b> joylashganmiz. Quyidagi ma’lumotlarni qoldiring — operatorimiz tez orada bog‘lanadi.</p>
             <form id="leadForm" novalidate>
               <div class="field">
                 <label for="name">Ism</label>
